@@ -53,7 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603008, 0)
 mesh = SubResource("CylinderMesh_3d7ws")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.828657, 0.559757, 0, -0.559757, 0.828657, 0, 1.58464, 3.4149)
+transform = Transform3D(1, 0, 0, 0, 0.828657, 0.559757, 0, -0.559757, 0.828657, 0, 1.79942, 3.4149)
 light_color = Color(0.929317, 0, 0.268335, 1)
 light_energy = 7.0
 light_bake_mode = 1
