@@ -71,6 +71,7 @@ light_energy = 7.0
 light_bake_mode = 1
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
+denoiser_strength = 0.112
 light_data = ExtResource("2_r40nq")
 
 [node name="Player" parent="." instance=ExtResource("3_tt17t")]
