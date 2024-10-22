@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://l7qc6nrxrjl8"]
+
+[ext_resource type="Script" path="res://scripts/NoLigher.gd" id="1_hc0tb"]
+
+[node name="LightOptimizer" type="Area3D" node_paths=PackedStringArray("lights_list")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.21475, 0, 2.55942)
+monitorable = false
+script = ExtResource("1_hc0tb")
+lights_list = [NodePath(""), NodePath("")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
