@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dll2wrei00o4m"
+path="res://.godot/imported/ChairWood1.obj-717950b9d04daf35d2a84b8b0a01d7bf.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ChairWood1.obj-717950b9d04daf35d2a84b8b0a01d7bf.mesh"]
+
+source_file="res://props/Furniture/ChairWood1.obj"
+dest_files=["res://.godot/imported/ChairWood1.obj-717950b9d04daf35d2a84b8b0a01d7bf.mesh", "res://.godot/imported/ChairWood1.obj-717950b9d04daf35d2a84b8b0a01d7bf.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

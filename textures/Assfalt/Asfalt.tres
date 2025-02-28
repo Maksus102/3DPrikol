@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bs0u0qel0c5rm"]
+
+[ext_resource type="Texture2D" uid="uid://bcectchohvcj1" path="res://textures/Assfalt/Asphalt020S_1K-JPG_Color.jpg" id="1_ctcfu"]
+[ext_resource type="Texture2D" uid="uid://yi0pjlp62gm3" path="res://textures/Assfalt/Asphalt020S_1K-JPG_NormalDX.jpg" id="2_c6hmu"]
+
+[resource]
+albedo_texture = ExtResource("1_ctcfu")
+normal_enabled = true
+normal_scale = 1.93
+normal_texture = ExtResource("2_c6hmu")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true

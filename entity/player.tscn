@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://2oxdgu03lnbk"]
+[gd_scene load_steps=21 format=3 uid="uid://2oxdgu03lnbk"]
 
 [ext_resource type="PackedScene" uid="uid://8oy3xm2sff8" path="res://addons/character-controller/fps/fps_controller_3d.tscn" id="1_fbpun"]
 [ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="2_8r0nc"]
@@ -8,14 +8,36 @@
 [ext_resource type="Resource" uid="uid://ci8kg40ae4vnl" path="res://addons/character-controller/example/main/audio_interacts/stone_audio_interact.tres" id="5_maxhk"]
 [ext_resource type="Script" path="res://scripts/HealthComp.gd" id="7_0up0v"]
 [ext_resource type="Script" path="res://scripts/Exit.gd" id="8_d7832"]
+[ext_resource type="Script" path="res://entity/int_menu.gd" id="9_iad7e"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="10_8br1a"]
+[ext_resource type="Resource" uid="uid://b20ikhbjmp4gh" path="res://dialogesRus.tres" id="11_1dvpg"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="11_6or56"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="12_0jgby"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="13_edhik"]
+[ext_resource type="Script" path="res://entity/charvoice.gd" id="15_624cp"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_pb2l1"]
-height = 1.85
-radius = 0.444161
+[sub_resource type="InputEventKey" id="InputEventKey_37ar3"]
+device = -1
+keycode = 85
+unicode = 117
+
+[sub_resource type="Shortcut" id="Shortcut_eptmr"]
+events = [SubResource("InputEventKey_37ar3")]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_4khsc"]
+script = ExtResource("11_6or56")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ntx8r"]
+script = ExtResource("12_0jgby")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_i2fkb"]
+script = ExtResource("13_edhik")
 
 [node name="Player" groups=["Player"] instance=ExtResource("1_fbpun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 collision_mask = 5
+floor_stop_on_slope = false
+floor_block_on_wall = false
 script = ExtResource("2_8r0nc")
 input_back_action_name = "move_backward"
 input_forward_action_name = "move_forward"
@@ -36,7 +58,6 @@ jump_height = 8
 
 [node name="Collision" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.108129, 0)
-shape = SubResource("CylinderShape3D_pb2l1")
 
 [node name="Crouch Ability 3D" parent="." index="7"]
 default_height = 1.8
@@ -50,21 +71,10 @@ fov = 90.0
 
 [node name="Interact" type="RayCast3D" parent="Head" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14731)
-target_position = Vector3(0, 0, -1.5)
-collision_mask = 14
+target_position = Vector3(0, 0, -2)
 collide_with_areas = true
 
-[node name="Rotator" type="StaticBody3D" parent="Head" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.39738)
-
-[node name="Generic6DOFJoint3D" type="Generic6DOFJoint3D" parent="Head" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.281673)
-node_a = NodePath("../Rotator")
-linear_limit_x/enabled = false
-linear_limit_y/enabled = false
-linear_limit_z/enabled = false
-
-[node name="HoldPos" type="Node3D" parent="Head" index="5"]
+[node name="HoldPos" type="Node3D" parent="Head" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.39723)
 
 [node name="Player Audios" parent="." index="9" instance=ExtResource("4_ux8kv")]
@@ -84,7 +94,7 @@ process_mode = 3
 visible = false
 custom_minimum_size = Vector2(100, 100)
 offset_right = 291.0
-offset_bottom = 102.0
+offset_bottom = 188.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("8_d7832")
@@ -117,3 +127,70 @@ offset_right = 165.0
 offset_bottom = 57.0
 text = "Exit?"
 horizontal_alignment = 1
+
+[node name="ChLang" type="Button" parent="Menu" index="3"]
+layout_mode = 1
+offset_left = 90.0
+offset_top = 117.0
+offset_right = 200.0
+offset_bottom = 170.0
+text = "Change Lang"
+
+[node name="IntMenu" type="Panel" parent="." index="13"]
+clip_contents = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -290.0
+offset_right = 228.0
+grow_vertical = 0
+script = ExtResource("9_iad7e")
+
+[node name="USEbtn" type="Button" parent="IntMenu" index="0"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 26.0
+offset_right = 175.0
+offset_bottom = 85.0
+toggle_mode = true
+action_mode = 0
+shortcut = SubResource("Shortcut_eptmr")
+text = "USE"
+
+[node name="LOOKbtn" type="Button" parent="IntMenu" index="1"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 98.0
+offset_right = 175.0
+offset_bottom = 157.0
+toggle_mode = true
+action_mode = 0
+text = "LOOK AT"
+
+[node name="Talkbtn" type="Button" parent="IntMenu" index="2"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 170.0
+offset_right = 175.0
+offset_bottom = 229.0
+toggle_mode = true
+action_mode = 0
+text = "TALK"
+
+[node name="DialogueBox" type="Panel" parent="." index="14"]
+visible = false
+offset_left = 266.0
+offset_top = 448.0
+offset_right = 889.0
+offset_bottom = 617.0
+script = ExtResource("10_8br1a")
+data = ExtResource("11_1dvpg")
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_4khsc"), SubResource("RichTextEffect_ntx8r"), SubResource("RichTextEffect_i2fkb")])
+
+[node name="Voice" type="AudioStreamPlayer3D" parent="." index="15"]
+script = ExtResource("15_624cp")
+
+[connection signal="toggled" from="IntMenu/USEbtn" to="IntMenu" method="_on_us_ebtn_toggled"]
+[connection signal="toggled" from="IntMenu/LOOKbtn" to="IntMenu" method="_on_loo_kbtn_toggled"]
+[connection signal="toggled" from="IntMenu/Talkbtn" to="IntMenu" method="_on_talkbtn_toggled"]
+[connection signal="dialogue_signal" from="DialogueBox" to="Voice" method="_on_dialogue_box_dialogue_signal"]

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cd3wa8b2j6d63"
+path="res://.godot/imported/RoadStr20.obj-3e9131d3b272e76e906f1cebeaa6702c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/RoadStr20.obj-3e9131d3b272e76e906f1cebeaa6702c.mesh"]
+
+source_file="res://meshes/RoadStr20.obj"
+dest_files=["res://.godot/imported/RoadStr20.obj-3e9131d3b272e76e906f1cebeaa6702c.mesh", "res://.godot/imported/RoadStr20.obj-3e9131d3b272e76e906f1cebeaa6702c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

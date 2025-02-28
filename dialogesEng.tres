@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://dtrd04p55jp8y"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_cmgt2"]
+
+[resource]
+script = ExtResource("1_cmgt2")
+starts = {
+"table_look": &"0_1",
+"table_talk": &"0_2"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-460, -240),
+"start_id": "table_look"
+},
+"0_2": {
+"link": &"1_2",
+"offset": Vector2(-440, 80),
+"start_id": "table_talk"
+},
+"1_1": {
+"dialogue": "Nice table",
+"offset": Vector2(-140, -240),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Brain"
+},
+"1_2": {
+"dialogue": "Well hello there, table",
+"offset": Vector2(-140, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Me"
+},
+"1_3": {
+"dialogue": "Well hello there, human",
+"offset": Vector2(220, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Table"
+},
+"1_4": {
+"dialogue": " 0 _ 0 ",
+"offset": Vector2(600, 120),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Me"
+}
+}
+variables = {}
+strays = Array[String]([])
+characters = ""

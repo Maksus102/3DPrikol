@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://cjfhnd70eh54g"]
+
+[ext_resource type="Texture2D" uid="uid://blsn6nafo64lp" path="res://textures/BlueSteel/CorrugatedSteel001_1K-JPG_Color.jpg" id="1_7ybn4"]
+[ext_resource type="Texture2D" uid="uid://dun8osscnadn4" path="res://textures/BlueSteel/CorrugatedSteel001_1K-JPG_AmbientOcclusion.jpg" id="2_06sjt"]
+[ext_resource type="Texture2D" uid="uid://d10jrulq1ptug" path="res://textures/BlueSteel/CorrugatedSteel001_1K-JPG_NormalDX.jpg" id="3_li23t"]
+
+[resource]
+albedo_texture = ExtResource("1_7ybn4")
+normal_enabled = true
+normal_texture = ExtResource("3_li23t")
+ao_enabled = true
+ao_texture = ExtResource("2_06sjt")
+uv1_scale = Vector3(4, 4, 4)

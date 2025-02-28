@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://c7hns05lpqvst"]
+
+[ext_resource type="Texture2D" uid="uid://qaamm7a5f830" path="res://textures/Grass1/Grass004_2K-PNG_Color.png" id="1_sa688"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ow5jf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_llwc6"]
+
+[resource]
+albedo_texture = ExtResource("1_sa688")
+normal_texture = SubResource("CompressedTexture2D_llwc6")
+ao_texture = SubResource("CompressedTexture2D_ow5jf")
+uv1_scale = Vector3(0.4, 0.4, 0.4)
+uv1_triplanar = true

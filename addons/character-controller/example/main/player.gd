@@ -22,27 +22,16 @@ class_name Player
 @export var input_crouch_action_name := "move_crouch"
 @export var input_fly_mode_action_name := "move_fly_mode"
 
-var hit_spr : Sprite3D
 @export_file var Hit_Sprite
 
 @export var underwater_env: Environment
 @onready var interactor = $"Head/Interact"
 @onready var holder = $"Head/HoldPos"
-@onready var Rotator = $"Head/Rotator"
-@onready var joint = $"Head/Generic6DOFJoint3D"
 @onready var inv = $"Inventar"
 
-var pickobj
-var locked = false
-
+var cursstate = false
 
 func _ready():
-	hit_spr = Sprite3D.new()
-	hit_spr.visible = false
-	hit_spr.no_depth_test = true
-	hit_spr.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	add_child(hit_spr)
-	hit_spr.texture = load("res://textures/CUM.png")
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	setup()
@@ -53,7 +42,7 @@ func _ready():
 		
 func _physics_process(delta):
 	var is_valid_input := Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
-	
+
 	
 	if is_valid_input:
 		if Input.is_action_just_pressed(input_fly_mode_action_name):
@@ -69,82 +58,28 @@ func _physics_process(delta):
 		# NOTE: It is important to always call move() even if we have no inputs 
 		## to process, as we still need to calculate gravity and collisions.
 		move(delta)
-	if pickobj != null:
-		var a = pickobj.global_transform.origin
-		var b = holder.global_transform.origin
-		pickobj.set_linear_velocity((b-a)*10)
+		
+
 
 func _input(event: InputEvent) -> void:
 	# Mouse look (only if the mouse is captured).
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and !locked:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_head(event.relative)
 		
-	
-	if Input.is_action_just_pressed('PhysPull'):
-		if pickobj == null:
-			picker()
-		elif pickobj !=null:
-			dropper()
-	
-	if Input.is_action_just_pressed("Interact"):
-		if pickobj == null:
-			interact()
-			
-	if Input.is_action_pressed('rclick') and pickobj:
-		locked = true
-		hrotation(event)
-	if Input.is_action_just_released('rclick'):
-		locked = false
-		
-	if Input.is_action_just_pressed("lclick"):
-		hit()
+	if Input.is_action_just_pressed("freecursor") and cursstate == false:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		cursstate = true
+	elif Input.is_action_just_pressed("freecursor") and cursstate == true:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		cursstate = false
+		interactor.look_at(interactor.global_position + camera.project_ray_normal(get_viewport().get_mouse_position()))
 	
 
 func _on_controller_emerged():
 	camera.environment = null
 
-
 func _on_controller_subemerged():
 	camera.environment = underwater_env
-	
-func hrotation (event):
-	if pickobj !=null:
-		if event is InputEventMouseMotion:
-			Rotator.rotate_x(deg_to_rad(event.relative.y * 0.5))
-			Rotator.rotate_y(deg_to_rad(event.relative.x * 0.5))
-
-func picker():
-	var detected = interactor.get_collider()
-	if detected != null and detected.get_class() == 'RigidBody3D':
-		pickobj = detected
-		joint.set_node_b(pickobj.get_path())
-		
-func dropper():
-	if pickobj != null:
-		pickobj = null
-		joint.set_node_b(joint.get_path())
 
 func death():
 	print("ded")
-	
-func interact():
-	var detectedint = interactor.get_collider()
-	if detectedint != null:
-		#var scre = detectedint.get_parent()
-		if detectedint.collision_layer == 2 and detectedint.has_method("inter"):
-			if detectedint.script != null:
-				detectedint.inter()
-		elif detectedint.find_child("DialogueBox") != null:
-			detectedint.find_child("DialogueBox").start()
-			
-func hit():
-	if interactor.is_colliding() and interactor.get_collider().collision_layer == 2:
-		var ho = interactor.get_collider()
-		ho.health_comp.hp -= 5
-	if interactor.is_colliding():
-		hit_spr.global_position = interactor.get_collision_point()
-		hit_spr.visible = true
-		await get_tree().create_timer(0.1).timeout
-		hit_spr.visible = false
-	pass
-			

@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dl6tmkkbtymt5"]
+
+[ext_resource type="Texture2D" uid="uid://cuk2fq0w0kguc" path="res://textures/Pavement/Tiles038_1K-JPG_Color.jpg" id="1_wfad7"]
+[ext_resource type="Texture2D" uid="uid://bfrpuhtab0sq2" path="res://textures/Pavement/Tiles038_1K-JPG_NormalDX.jpg" id="2_2h1pb"]
+
+[resource]
+albedo_texture = ExtResource("1_wfad7")
+normal_enabled = true
+normal_texture = ExtResource("2_2h1pb")
+uv1_scale = Vector3(5, 5, 5)
+uv1_offset = Vector3(0, -0.01, 0)

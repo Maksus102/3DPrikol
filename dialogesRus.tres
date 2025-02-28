@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://b20ikhbjmp4gh"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_cmgt2"]
+
+[resource]
+script = ExtResource("1_cmgt2")
+starts = {
+"table_look": &"0_1",
+"table_talk": &"0_2"
+}
+nodes = {
+"0_1": {
+"link": &"3_1",
+"offset": Vector2(-500, -220),
+"start_id": "table_look"
+},
+"0_2": {
+"link": &"1_2",
+"offset": Vector2(-440, 80),
+"start_id": "table_talk"
+},
+"1_1": {
+"dialogue": "Солидный такой стол",
+"offset": Vector2(140, -320),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Мозг"
+},
+"1_2": {
+"dialogue": "Ну здарова, стол",
+"offset": Vector2(-140, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_3",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Я"
+},
+"1_3": {
+"dialogue": "Ну здарова, человек",
+"offset": Vector2(220, 100),
+"options": {
+0: {
+"condition": {},
+"link": &"1_4",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Стол"
+},
+"1_4": {
+"dialogue": " 0 _ 0 ",
+"offset": Vector2(600, 120),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Я"
+},
+"3_1": {
+"link": &"1_1",
+"offset": Vector2(-160, -260),
+"signalValue": "vo_table_look"
+}
+}
+variables = {}
+strays = Array[String]([])
+characters = ""
