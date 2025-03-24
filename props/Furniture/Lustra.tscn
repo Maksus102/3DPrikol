@@ -60,4 +60,9 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.
 light_energy = 2.666
 shadow_enabled = true
 spot_range = 15.459
-spot_angle = 78.89
+spot_angle = 79.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 0.08
+omni_range = 12.0
+omni_attenuation = 0.306

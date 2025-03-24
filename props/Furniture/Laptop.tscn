@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=4 uid="uid://c45xuy8p1f34s"]
+
+[ext_resource type="Material" uid="uid://cx4d486bdwbpn" path="res://textures/Metal2/Metal2.tres" id="1_5d2an"]
+[ext_resource type="Material" uid="uid://brofi1d8imwwn" path="res://textures/Tiles1/Tiles1.tres" id="2_4y738"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbn42"]
+resource_name = "PH2"
+albedo_color = Color(0.0392323, 0.261062, 0.993916, 1)
+metallic = 0.5
+emission_enabled = true
+emission = Color(0.0599999, 0, 0.9, 1)
+emission_energy_multiplier = 1.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jdpln"]
+_surfaces = [{
+"aabb": AABB(-0.252, 0, -0.35, 0.699245, 0.511791, 0.7),
+"attribute_data": PackedByteArray("Ar///yq4//8Cv/9/Krj/fyq41iMfwXIoKrj/fx/BY3u2t/9/qK3/f7a3AACorQAAH8HWoxXKcqgfwf//Fcpj+6it/3/5W/9/qK0AAPlbAAAVyv9//c7/fxXK///9zv//NM//fxXK/380z9YjFcrWIyrG1qMfwdajKsbWIx/B1iM0z9ajU9TWozTP//9T1P//+Vv/fwAA/3/5WwAAAAAAAMNWTfvDVrGEKFz//yhc/39lBbGEAAD/f2UFTfsAAP//rrCA+K6wfYcquP//Krj/f6NjgPgoXP//o2N9hyhc/38="),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMAFAAVABYAFgAVABcAGAAZABoAGgAZABsAHAAdAB4AHgAdAB8AIAAhACIAIgAhACMAJAAlACYAJgAlACcAKAApACoAKgApACsAKQAsACsAKwAsAC0ALAAuAC0ALQAuAC8ALgAoAC8ALwAoACoAMAAxADIAMgAxADMANAAwADUANQAwADIANgA0ADcANwA0ADUAMQA2ADMAMwA2ADcA"),
+"material": ExtResource("1_5d2an"),
+"name": "PH1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("AACCGP//QeE5CQAA//9B4QAAghgAAEHhOQkAAAAAQeEAAIIYAAD//zkJAAAAAP//hLiCGAAA//9KrwAAAAD//4S4ghgAADHLSq8AAAAAMcuEuIIY//8xy0qvAAD//zHLhLiCGP///79KrwAA////vwAAghj///+/OQkAAP///79KrwAAAAD/vzkJAAAAAP+/Sq8AAP///785CQAA////v///NPv///f1XPb/////9/X//zT7AAD39Vz2//8AAPf1//80+wAA//9c9v//AAD//+PATw4AAP//QbcZEwAA///jwE8OAAA5wUG3GRMAADnB48BPDv//OcFBtxkT//85wePATw7//8bxQbcZE///xvH//zT7///G8Vz2/////8bx//80+wAAp83jwE8OAACnzf//NPv//6fN48BPDv//p82q8h/ym/anzaryH/JjCafNXPb/////p81c9v//AACnzfO6+CBjCafNQbcZEwAAp83zuvggm/anzUG3GRP//6fNAQ+CGPwO//8BD4IYAvH//wAAghgAAP//AACCGP////+DqYIY/A7//4S4ghgAAP//g6mCGALx//+EuIIY//////XOEuL1zhLi9c4S4vXOEuL/P/+//z//v/8//7//P/+/LSOkOS0jpDktI6Q5LSOkOf9//3//f/9//3//f/9//38AAP9/AAD/fwAA/38AAP9/0DpeCtA6XgrQOl4K0DpeCs/sz2zP7M9sz+zPbM/sz2xeIa6QXiGukF4hrpBeIa6Q/////////////////////1YlUjVWJVI1ViVSNVYlUjWo2qzKqNqsyqjarMqo2qzKqNqsyqjarMqo2qzKqNqsyv+/AAD/f/+//3//v/9//7//f/+//3//v/9//7//f/+/")
+}, {
+"aabb": AABB(0.258649, 0.065919, -0.324329, 0.15219, 0.418139, 0.648658),
+"attribute_data": PackedByteArray("ZQWxhMNWsYRlBU37w1ZN+w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": SubResource("StandardMaterial3D_dbn42"),
+"name": "PH2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAp83/////AACnzQAAAAD//6fN////////p82o2qzKqNqsyqjarMqo2qzK")
+}, {
+"aabb": AABB(-0.211017, 0.049, -0.309017, 0.422034, 1e-05, 0.618034),
+"attribute_data": PackedByteArray("rrCA+KNjgPiusH2Ho2N9hw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("2_4y738"),
+"name": "PH3",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/////wAAAAD//wAAAAD///////8AAP//////f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xc31c"]
+size = Vector3(0.5, 0.05, 0.7)
+
+[node name="Laptop" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_jdpln")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 0.025, -2.98023e-08)
+shape = SubResource("BoxShape3D_xc31c")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.0858317, 0.173648, 0.98106, 0.0151344, 0.984808, -0.172987, -0.996195, -6.52501e-09, -0.0871558, 0.3, 0.2, 0)
+visible = false
+light_color = Color(0.243165, 0.374955, 0.920909, 1)
+light_energy = 0.6
+shadow_enabled = true
+spot_range = 4.475
+spot_angle = 68.7
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.3, 0)
+light_color = Color(0.0810037, 0, 0.819852, 1)
+light_energy = 0.5
+shadow_enabled = true

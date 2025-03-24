@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://r3nca8e4aywl"]
 
 [ext_resource type="Material" uid="uid://be5anqc3bl08m" path="res://textures/Wood/Wood.tres" id="1_8po5a"]
-[ext_resource type="Script" path="res://scripts/TableScr.gd" id="1_rfx5m"]
+[ext_resource type="Script" uid="uid://dcfbtq6cm1rmv" path="res://scripts/TableScr.gd" id="1_rfx5m"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xu0iy"]
 lightmap_size_hint = Vector2i(110, 110)

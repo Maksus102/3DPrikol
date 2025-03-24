@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://brbhkwmvqtpt3"]
+[gd_scene load_steps=27 format=4 uid="uid://brbhkwmvqtpt3"]
 
 [ext_resource type="Texture2D" uid="uid://daw518hn5qe2y" path="res://textures/Skyboxes/EveningSkyHDRI029B_8K-TONEMAPPED.jpg" id="1_esody"]
 [ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://entity/player.tscn" id="2_ptrsi"]
@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://c8wkwmsxib5ya" path="res://props/Furniture/Chair.tscn" id="13_8hdd3"]
 [ext_resource type="PackedScene" uid="uid://bm4op0g3tybmh" path="res://props/Furniture/RadiatorBatt.tscn" id="14_3786f"]
 [ext_resource type="PackedScene" uid="uid://dfpu8cc1jw8yw" path="res://props/Furniture/KitchSink.tscn" id="15_hiogg"]
+[ext_resource type="PackedScene" uid="uid://r3nca8e4aywl" path="res://props/table_st.tscn" id="15_lriws"]
+[ext_resource type="PackedScene" uid="uid://c45xuy8p1f34s" path="res://props/Furniture/Laptop.tscn" id="16_q5m66"]
+[ext_resource type="PackedScene" uid="uid://c26ovqi3xmvtg" path="res://props/CharTest.tscn" id="18_u5erc"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1ktug"]
 panorama = ExtResource("1_esody")
@@ -25,6 +28,7 @@ sky_material = SubResource("PanoramaSkyMaterial_1ktug")
 [sub_resource type="Environment" id="Environment_sqp0e"]
 background_mode = 2
 background_color = Color(0.16335, 0.3003, 0.373267, 1)
+background_energy_multiplier = 0.6
 sky = SubResource("Sky_t7i38")
 tonemap_mode = 2
 tonemap_white = 13.27
@@ -140,33 +144,33 @@ height_falloff = 0.194841
 environment = SubResource("Environment_sqp0e")
 
 [node name="Player" parent="." instance=ExtResource("2_ptrsi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.638201, 0.79187, 4.43095)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6382, 6.36027, 23.431)
 
 [node name="Roads" type="Node3D" parent="."]
 
 [node name="RoadStr20" parent="Roads" instance=ExtResource("3_87bvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05, -0.5, 4.5)
 
 [node name="RoadStr24" parent="Roads" instance=ExtResource("3_87bvp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.95, -0.5, 4.5)
 
 [node name="RoadStr25" parent="Roads" instance=ExtResource("3_87bvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.95, -0.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.9, -0.5, 4.5)
 
 [node name="RoadStr26" parent="Roads" instance=ExtResource("3_87bvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.9, -0.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.85, -0.5, 4.5)
 
 [node name="RoadStr27" parent="Roads" instance=ExtResource("3_87bvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.85, -0.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.8, -0.5, 4.5)
 
 [node name="RoadStr21" parent="Roads" instance=ExtResource("3_87bvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, -0.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.9, -0.5, 4.5)
 
 [node name="RoadStr22" parent="Roads" instance=ExtResource("3_87bvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39, -0.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.85, -0.5, 4.5)
 
 [node name="RoadStr23" parent="Roads" instance=ExtResource("3_87bvp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59, -0.5, 4.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.8, -0.5, 4.5)
 
 [node name="BusStop" parent="Roads" instance=ExtResource("3_2is1t")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.5, -0.3, -5.5)
@@ -199,7 +203,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45, 9.25, 21.85)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2, 9.25, 26.15)
 
 [node name="Chair" parent="EtajkaMain/Flat" instance=ExtResource("13_8hdd3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 5.9, 24.75)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.05, 5.9, 21.8)
 
 [node name="FoglessFlat" type="FogVolume" parent="EtajkaMain/Flat"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 7.75, 24.85)
@@ -227,6 +231,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.55, 5.9, 19.6)
 [node name="RadiatorBatt4" parent="EtajkaMain/Flat" instance=ExtResource("14_3786f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55, 5.9, 20.1)
 
+[node name="TableSt" parent="EtajkaMain/Flat" instance=ExtResource("15_lriws")]
+transform = Transform3D(0.996195, 0, -0.0871557, 0, 1, 0, 0.0871557, 0, 0.996195, 2.35, 5.9, 20.75)
+
+[node name="Laptop" parent="EtajkaMain/Flat" instance=ExtResource("16_q5m66")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.07179, 6.9, 20.7552)
+
 [node name="EtajkaMain2" parent="." instance=ExtResource("6_7wj64")]
 transform = Transform3D(1.41561e-07, 0, 1, 0, 1, 0, -1, 0, 1.41561e-07, 9.5, -0.4, -15.25)
 
@@ -237,3 +247,6 @@ material = SubResource("FogMaterial_fwoq5")
 
 [node name="KitchSink" parent="." instance=ExtResource("15_hiogg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.45, 5.6, 19.9)
+
+[node name="CharTest" parent="." instance=ExtResource("18_u5erc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5.57044, 19.5)
