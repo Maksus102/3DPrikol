@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://2oxdgu03lnbk"]
 
 [ext_resource type="PackedScene" uid="uid://8oy3xm2sff8" path="res://addons/character-controller/fps/fps_controller_3d.tscn" id="1_fbpun"]
-[ext_resource type="Script" path="res://addons/character-controller/example/main/player.gd" id="2_8r0nc"]
+[ext_resource type="Script" uid="uid://8yqoq4lec2cs" path="res://addons/character-controller/example/main/player.gd" id="2_8r0nc"]
 [ext_resource type="Environment" uid="uid://b3cn01u84faiy" path="res://addons/character-controller/example/main/underwater.tres" id="3_dxksd"]
-[ext_resource type="Script" path="res://scripts/Inventar.gd" id="4_owmqo"]
+[ext_resource type="Script" uid="uid://dm6h2d5utma12" path="res://scripts/Inventar.gd" id="4_owmqo"]
 [ext_resource type="PackedScene" uid="uid://dyttywy51cj3q" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="4_ux8kv"]
 [ext_resource type="Resource" uid="uid://ci8kg40ae4vnl" path="res://addons/character-controller/example/main/audio_interacts/stone_audio_interact.tres" id="5_maxhk"]
-[ext_resource type="Script" path="res://scripts/HealthComp.gd" id="7_0up0v"]
-[ext_resource type="Script" path="res://scripts/Exit.gd" id="8_d7832"]
+[ext_resource type="Script" uid="uid://bl3pcruisqm3b" path="res://scripts/HealthComp.gd" id="7_0up0v"]
+[ext_resource type="Script" uid="uid://cbx0b6jjgg3a6" path="res://scripts/Exit.gd" id="8_d7832"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pb2l1"]
 height = 1.85
