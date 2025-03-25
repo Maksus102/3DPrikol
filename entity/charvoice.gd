@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_dialogue_box_dialogue_signal(value: String) -> void:
-	self.stream = load("res://audio/{1}.ogg".format({"1" : value}))
-	self.play()
+	if "vo_" in value:
+		self.stream = load("res://audio/{1}.ogg".format({"1" : value}))
+		self.play()
 	pass # Replace with function body.

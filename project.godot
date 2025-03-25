@@ -15,6 +15,10 @@ run/main_scene="res://city_test.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Signals="*res://scripts/signals.gd"
+
 [dotnet]
 
 project/assembly_name="3DFolio"
