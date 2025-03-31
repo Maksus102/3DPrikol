@@ -1,0 +1,196 @@
+[gd_scene load_steps=21 format=3 uid="uid://2oxdgu03lnbk"]
+
+[ext_resource type="PackedScene" uid="uid://8oy3xm2sff8" path="res://addons/character-controller/fps/fps_controller_3d.tscn" id="1_fbpun"]
+[ext_resource type="Script" uid="uid://dl00vuulj4kah" path="res://addons/character-controller/example/main/player.gd" id="2_8r0nc"]
+[ext_resource type="Environment" uid="uid://b3cn01u84faiy" path="res://addons/character-controller/example/main/underwater.tres" id="3_dxksd"]
+[ext_resource type="Script" uid="uid://d0kcroqx551w" path="res://scripts/Inventar.gd" id="4_owmqo"]
+[ext_resource type="PackedScene" uid="uid://dyttywy51cj3q" path="res://addons/character-controller/example/main/audios/player_audios.tscn" id="4_ux8kv"]
+[ext_resource type="Resource" uid="uid://ci8kg40ae4vnl" path="res://addons/character-controller/example/main/audio_interacts/stone_audio_interact.tres" id="5_maxhk"]
+[ext_resource type="Script" uid="uid://dbwbanhrdjv2d" path="res://scripts/HealthComp.gd" id="7_0up0v"]
+[ext_resource type="Script" uid="uid://b1rsf272q28h" path="res://scripts/Exit.gd" id="8_d7832"]
+[ext_resource type="Script" uid="uid://b7o6t7vg073xs" path="res://entity/int_menu.gd" id="9_iad7e"]
+[ext_resource type="Script" uid="uid://cmirfaga3tifk" path="res://addons/dialogue_nodes/objects/DialogueBox.gd" id="10_8br1a"]
+[ext_resource type="Resource" uid="uid://b20ikhbjmp4gh" path="res://dialogesRus.tres" id="11_1dvpg"]
+[ext_resource type="Script" uid="uid://bod1dwv5y1765" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="11_6or56"]
+[ext_resource type="Script" uid="uid://bockglejl1q2h" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="12_0jgby"]
+[ext_resource type="Script" uid="uid://cw5vpcprpxdis" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="13_edhik"]
+[ext_resource type="Script" uid="uid://debcmrnci6bp0" path="res://entity/charvoice.gd" id="15_624cp"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_37ar3"]
+device = -1
+keycode = 85
+unicode = 117
+
+[sub_resource type="Shortcut" id="Shortcut_eptmr"]
+events = [SubResource("InputEventKey_37ar3")]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_4khsc"]
+script = ExtResource("11_6or56")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_ntx8r"]
+script = ExtResource("12_0jgby")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_i2fkb"]
+script = ExtResource("13_edhik")
+
+[node name="Player" groups=["Player"] instance=ExtResource("1_fbpun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+collision_mask = 5
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("2_8r0nc")
+input_back_action_name = "move_backward"
+input_forward_action_name = "move_forward"
+input_left_action_name = "move_left"
+input_right_action_name = "move_right"
+input_sprint_action_name = "move_sprint"
+input_jump_action_name = "move_jump"
+input_crouch_action_name = "move_crouch"
+input_fly_mode_action_name = "move_fly_mode"
+Hit_Sprite = "res://textures/CUM.png"
+underwater_env = ExtResource("3_dxksd")
+step_bob_enabled = false
+rotation_to_move = false
+speed = 4
+sprint_speed_multiplier = 2.0
+step_interval = 3.0
+jump_height = 8
+
+[node name="Collision" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.108129, 0)
+
+[node name="Crouch Ability 3D" parent="." index="7"]
+default_height = 1.8
+
+[node name="Head" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.873072, -0.189382)
+vertical_angle_limit = 75.0
+
+[node name="Camera" parent="Head" index="0"]
+fov = 90.0
+
+[node name="Interact" type="RayCast3D" parent="Head" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14731)
+target_position = Vector3(0, 0, -2)
+collide_with_areas = true
+
+[node name="HoldPos" type="Node3D" parent="Head" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.39723)
+
+[node name="Player Audios" parent="." index="9" instance=ExtResource("4_ux8kv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.90086, 0)
+audio_interact = ExtResource("5_maxhk")
+
+[node name="Inventar" type="Node" parent="." index="10"]
+script = ExtResource("4_owmqo")
+
+[node name="HealthComp" type="Node3D" parent="." index="11" node_paths=PackedStringArray("Hitbox")]
+script = ExtResource("7_0up0v")
+Hitbox = NodePath("../Collision")
+MaxHP = 200.0
+
+[node name="Menu" type="Panel" parent="." index="12"]
+process_mode = 3
+visible = false
+custom_minimum_size = Vector2(100, 100)
+offset_right = 291.0
+offset_bottom = 188.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("8_d7832")
+
+[node name="Ya" type="Button" parent="Menu" index="0"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_right = 100.0
+offset_bottom = 100.0
+action_mode = 0
+text = "Ya"
+
+[node name="No" type="Button" parent="Menu" index="1"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+action_mode = 0
+text = "No"
+
+[node name="Label" type="Label" parent="Menu" index="2"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 34.0
+offset_right = 165.0
+offset_bottom = 57.0
+text = "Exit?"
+horizontal_alignment = 1
+
+[node name="ChLang" type="Button" parent="Menu" index="3"]
+layout_mode = 1
+offset_left = 90.0
+offset_top = 117.0
+offset_right = 200.0
+offset_bottom = 170.0
+text = "Change Lang"
+
+[node name="IntMenu" type="Panel" parent="." index="13"]
+clip_contents = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -290.0
+offset_right = 228.0
+grow_vertical = 0
+script = ExtResource("9_iad7e")
+
+[node name="USEbtn" type="Button" parent="IntMenu" index="0"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 26.0
+offset_right = 175.0
+offset_bottom = 85.0
+toggle_mode = true
+action_mode = 0
+shortcut = SubResource("Shortcut_eptmr")
+text = "USE"
+
+[node name="LOOKbtn" type="Button" parent="IntMenu" index="1"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 98.0
+offset_right = 175.0
+offset_bottom = 157.0
+toggle_mode = true
+action_mode = 0
+text = "LOOK AT"
+
+[node name="Talkbtn" type="Button" parent="IntMenu" index="2"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 170.0
+offset_right = 175.0
+offset_bottom = 229.0
+toggle_mode = true
+action_mode = 0
+text = "TALK"
+
+[node name="DialogueBox" type="Panel" parent="." index="14"]
+visible = false
+offset_left = 266.0
+offset_top = 448.0
+offset_right = 889.0
+offset_bottom = 617.0
+script = ExtResource("10_8br1a")
+data = ExtResource("11_1dvpg")
+custom_effects = Array[RichTextEffect]([SubResource("RichTextEffect_4khsc"), SubResource("RichTextEffect_ntx8r"), SubResource("RichTextEffect_i2fkb")])
+
+[node name="Voice" type="AudioStreamPlayer3D" parent="." index="15"]
+script = ExtResource("15_624cp")
+
+[connection signal="toggled" from="IntMenu/USEbtn" to="IntMenu" method="_on_us_ebtn_toggled"]
+[connection signal="toggled" from="IntMenu/LOOKbtn" to="IntMenu" method="_on_loo_kbtn_toggled"]
+[connection signal="toggled" from="IntMenu/Talkbtn" to="IntMenu" method="_on_talkbtn_toggled"]
+[connection signal="dialogue_signal" from="DialogueBox" to="Voice" method="_on_dialogue_box_dialogue_signal"]

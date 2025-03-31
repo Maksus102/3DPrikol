@@ -54,6 +54,7 @@ func talk():
 	var detectedint = Inter.get_collider()
 	if detectedint != null:
 		if detectedint.script != null and detectedint.talk_dial_id != null:
+			GSig.npc_talk(detectedint,dial)
 			dial.start_id = detectedint.talk_dial_id
 			dial.start()
 			talk_btn.button_pressed = false

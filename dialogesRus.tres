@@ -83,16 +83,29 @@ nodes = {
 "options": {
 0: {
 "condition": {},
-"link": &"3_2",
+"link": &"1_6",
 "text": ""
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(340, 240),
 "speaker": "Я"
 },
 &"1_6": {
 "dialogue": "Какими деньгами?",
-"offset": Vector2(476.457, 543.148),
+"offset": Vector2(500, 520),
+"options": {
+0: {
+"condition": {},
+"link": &"1_7",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Клод"
+},
+&"1_7": {
+"dialogue": "Такими вот деньгами",
+"offset": Vector2(991.3, 546.017),
 "options": {
 0: {
 "condition": {},
@@ -101,17 +114,12 @@ nodes = {
 }
 },
 "size": Vector2(300, 240),
-"speaker": "Клод"
+"speaker": "Я"
 },
 &"3_1": {
 "link": &"1_1",
 "offset": Vector2(-160, -260),
 "signalValue": "vo_table_look"
-},
-&"3_2": {
-"link": &"1_6",
-"offset": Vector2(180, 580),
-"signalValue": "cloud_talk"
 }
 }
 variables = {}
