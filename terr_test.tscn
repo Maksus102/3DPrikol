@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://2hqv8n3usyqu"]
+
+[ext_resource type="PackedScene" uid="uid://b7ponsp0y5sdh" path="res://meshes/terrtest.glb" id="1_ccaxo"]
+[ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://entity/player.tscn" id="2_fiktm"]
+[ext_resource type="Texture2D" uid="uid://ct1kuswagtva4" path="res://textures/Skyboxes/DaySkyHDRI021A_8K-TONEMAPPED.jpg" id="2_hf3sg"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1x716"]
+panorama = ExtResource("2_hf3sg")
+
+[sub_resource type="Sky" id="Sky_86hg1"]
+sky_material = SubResource("PanoramaSkyMaterial_1x716")
+
+[sub_resource type="Environment" id="Environment_hf3sg"]
+background_mode = 2
+sky = SubResource("Sky_86hg1")
+ssao_enabled = true
+
+[node name="TerrTest" type="Node3D"]
+
+[node name="terrtest" parent="." instance=ExtResource("1_ccaxo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -5, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hf3sg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, 0.12941, -0.482963, 0, 0.965926, 0.258819, 0.5, -0.224144, 0.836516, 0, 20, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_fiktm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, -4.20813, 44.5)
