@@ -1,0 +1,27 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://cngn7p3jcwwbr"
+path.bptc="res://.godot/imported/terr_test.exr-e6bbc1e77f8b1217a74a39d392e0bbed.bptc.ctexarray"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+
+[deps]
+
+source_file="res://meshes/terr_test.exr"
+dest_files=["res://.godot/imported/terr_test.exr-e6bbc1e77f8b1217a74a39d392e0bbed.bptc.ctexarray"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=2

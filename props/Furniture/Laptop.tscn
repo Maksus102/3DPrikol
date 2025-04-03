@@ -7,9 +7,8 @@
 resource_name = "PH2"
 albedo_color = Color(0.0392323, 0.261062, 0.993916, 1)
 metallic = 0.5
-emission_enabled = true
-emission = Color(0.0599999, 0, 0.9, 1)
-emission_energy_multiplier = 1.5
+emission = Color(0, 0.233334, 1, 1)
+rim_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jdpln"]
 _surfaces = [{
@@ -74,6 +73,7 @@ spot_angle = 68.7
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.3, 0)
-light_color = Color(0.0810037, 0, 0.819852, 1)
-light_energy = 0.5
+light_color = Color(0.19888, 0.1232, 0.88, 1)
+light_energy = 2.0
+light_specular = 3.0
 shadow_enabled = true

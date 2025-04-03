@@ -1,31 +1,138 @@
-[gd_scene load_steps=7 format=3 uid="uid://2hqv8n3usyqu"]
+[gd_scene load_steps=12 format=4 uid="uid://2hqv8n3usyqu"]
 
-[ext_resource type="PackedScene" uid="uid://b7ponsp0y5sdh" path="res://meshes/terrtest.glb" id="1_ccaxo"]
 [ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://entity/player.tscn" id="2_fiktm"]
-[ext_resource type="Texture2D" uid="uid://ct1kuswagtva4" path="res://textures/Skyboxes/DaySkyHDRI021A_8K-TONEMAPPED.jpg" id="2_hf3sg"]
+[ext_resource type="PackedScene" uid="uid://cjubbce6djcad" path="res://meshes/giantsand.glb" id="3_fiktm"]
+[ext_resource type="PackedScene" uid="uid://bq1xmorsng866" path="res://props/Etajka/EtajkaMain.tscn" id="4_hf3sg"]
+[ext_resource type="Material" uid="uid://cx4d486bdwbpn" path="res://textures/Metal2/Metal2.tres" id="5_86hg1"]
+[ext_resource type="Material" uid="uid://brofi1d8imwwn" path="res://textures/Tiles1/Tiles1.tres" id="6_ewaa7"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1x716"]
-panorama = ExtResource("2_hf3sg")
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1x716"]
+sky_top_color = Color(0.286, 0.396, 0.55, 1)
+sky_horizon_color = Color(0.637407, 0.647013, 0.66218, 1)
+sky_curve = 0.160766
+ground_bottom_color = Color(0.66, 0.55528, 0.4356, 1)
+sun_angle_max = 5.59
+sun_curve = 3.16681
 
 [sub_resource type="Sky" id="Sky_86hg1"]
-sky_material = SubResource("PanoramaSkyMaterial_1x716")
+sky_material = SubResource("ProceduralSkyMaterial_1x716")
 
 [sub_resource type="Environment" id="Environment_hf3sg"]
 background_mode = 2
 sky = SubResource("Sky_86hg1")
+tonemap_mode = 3
+tonemap_exposure = 1.3
 ssao_enabled = true
+ssao_radius = 1.67
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+sdfgi_min_cell_size = 0.488281
+sdfgi_probe_bias = 0.76
+glow_enabled = true
+glow_strength = 0.86
+glow_bloom = 0.18
+glow_blend_mode = 1
+fog_enabled = true
+fog_light_color = Color(0.73, 0.538375, 0.2701, 1)
+fog_sun_scatter = 0.25
+fog_density = 0.0035
+fog_aerial_perspective = 0.309
+fog_depth_end = 300.0
+volumetric_fog_density = 0.021
+volumetric_fog_albedo = Color(0.88, 0.653987, 0.2904, 1)
+volumetric_fog_emission = Color(0.73, 0.600547, 0.3212, 1)
+adjustment_enabled = true
+adjustment_contrast = 1.26
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbn42"]
+resource_name = "PH2"
+albedo_color = Color(0, 0.233334, 1, 1)
+emission = Color(0.0946666, 0.03, 1, 1)
+emission_energy_multiplier = 2.0
+rim_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jdpln"]
+_surfaces = [{
+"aabb": AABB(-0.252, 0, -0.35, 0.699245, 0.511791, 0.7),
+"attribute_data": PackedByteArray("Ar///yq4//8Cv/9/Krj/fyq41iMfwXIoKrj/fx/BY3u2t/9/qK3/f7a3AACorQAAH8HWoxXKcqgfwf//Fcpj+6it/3/5W/9/qK0AAPlbAAAVyv9//c7/fxXK///9zv//NM//fxXK/380z9YjFcrWIyrG1qMfwdajKsbWIx/B1iM0z9ajU9TWozTP//9T1P//+Vv/fwAA/3/5WwAAAAAAAMNWTfvDVrGEKFz//yhc/39lBbGEAAD/f2UFTfsAAP//rrCA+K6wfYcquP//Krj/f6NjgPgoXP//o2N9hyhc/38="),
+"format": 34896613399,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAgABAAMABAAFAAYABgAFAAcACAAJAAoACgAJAAsADAANAA4ADgANAA8AEAARABIAEgARABMAFAAVABYAFgAVABcAGAAZABoAGgAZABsAHAAdAB4AHgAdAB8AIAAhACIAIgAhACMAJAAlACYAJgAlACcAKAApACoAKgApACsAKQAsACsAKwAsAC0ALAAuAC0ALQAuAC8ALgAoAC8ALwAoACoAMAAxADIAMgAxADMANAAwADUANQAwADIANgA0ADcANwA0ADUAMQA2ADMAMwA2ADcA"),
+"material": ExtResource("5_86hg1"),
+"name": "PH1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 56,
+"vertex_data": PackedByteArray("AACCGP//QeE5CQAA//9B4QAAghgAAEHhOQkAAAAAQeEAAIIYAAD//zkJAAAAAP//hLiCGAAA//9KrwAAAAD//4S4ghgAADHLSq8AAAAAMcuEuIIY//8xy0qvAAD//zHLhLiCGP///79KrwAA////vwAAghj///+/OQkAAP///79KrwAAAAD/vzkJAAAAAP+/Sq8AAP///785CQAA////v///NPv///f1XPb/////9/X//zT7AAD39Vz2//8AAPf1//80+wAA//9c9v//AAD//+PATw4AAP//QbcZEwAA///jwE8OAAA5wUG3GRMAADnB48BPDv//OcFBtxkT//85wePATw7//8bxQbcZE///xvH//zT7///G8Vz2/////8bx//80+wAAp83jwE8OAACnzf//NPv//6fN48BPDv//p82q8h/ym/anzaryH/JjCafNXPb/////p81c9v//AACnzfO6+CBjCafNQbcZEwAAp83zuvggm/anzUG3GRP//6fNAQ+CGPwO//8BD4IYAvH//wAAghgAAP//AACCGP////+DqYIY/A7//4S4ghgAAP//g6mCGALx//+EuIIY//////XOEuL1zhLi9c4S4vXOEuL/P/+//z//v/8//7//P/+/LSOkOS0jpDktI6Q5LSOkOf9//3//f/9//3//f/9//38AAP9/AAD/fwAA/38AAP9/0DpeCtA6XgrQOl4K0DpeCs/sz2zP7M9sz+zPbM/sz2xeIa6QXiGukF4hrpBeIa6Q/////////////////////1YlUjVWJVI1ViVSNVYlUjWo2qzKqNqsyqjarMqo2qzKqNqsyqjarMqo2qzKqNqsyv+/AAD/f/+//3//v/9//7//f/+//3//v/9//7//f/+/")
+}, {
+"aabb": AABB(0.258649, 0.065919, -0.324329, 0.15219, 0.418139, 0.648658),
+"attribute_data": PackedByteArray("ZQWxhMNWsYRlBU37w1ZN+w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": SubResource("StandardMaterial3D_dbn42"),
+"name": "PH2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAp83/////AACnzQAAAAD//6fN////////p82o2qzKqNqsyqjarMqo2qzK")
+}, {
+"aabb": AABB(-0.211017, 0.049, -0.309017, 0.422034, 1e-05, 0.618034),
+"attribute_data": PackedByteArray("rrCA+KNjgPiusH2Ho2N9hw=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAgABAAMA"),
+"material": ExtResource("6_ewaa7"),
+"name": "PH3",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/////wAAAAD//wAAAAD///////8AAP//////f/+//3//v/9//7//f/+/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xc31c"]
+size = Vector3(0.5, 0.05, 0.7)
 
 [node name="TerrTest" type="Node3D"]
-
-[node name="terrtest" parent="." instance=ExtResource("1_ccaxo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -5, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hf3sg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866025, 0.12941, -0.482963, 0, 0.965926, 0.258819, 0.5, -0.224144, 0.836516, 0, 20, 0)
+transform = Transform3D(0.482963, -0.466507, 0.741025, -0.0991445, 0.811691, 0.575611, -0.87001, -0.351468, 0.345765, 0, 33, 0)
+light_color = Color(1, 0.9065, 0.49, 1)
+light_energy = 0.856
 shadow_enabled = true
+shadow_bias = 0.01
+shadow_transmittance_bias = 3.988
+directional_shadow_max_distance = 261.8
+directional_shadow_pancake_size = 72.0
 
 [node name="Player" parent="." instance=ExtResource("2_fiktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.5, -4.20813, 44.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 8.59731, -70.5)
+
+[node name="giantsand" parent="." instance=ExtResource("3_fiktm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 4.5, 77.5)
+
+[node name="EtajkaMain" parent="." instance=ExtResource("4_hf3sg")]
+transform = Transform3D(-4.2222e-08, 0.258819, -0.965926, 1.13133e-08, 0.965926, 0.258819, 1, 0, -4.37114e-08, -36.5, -15, 49.5)
+
+[node name="Laptop" type="StaticBody3D" parent="."]
+transform = Transform3D(0.258819, -5.0965e-09, -0.965926, 0.330366, 0.939693, 0.0885214, 0.907674, -0.34202, 0.243211, -57.5, -10.25, 37.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Laptop"]
+mesh = SubResource("ArrayMesh_jdpln")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Laptop"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 0.025, -2.98023e-08)
+shape = SubResource("BoxShape3D_xc31c")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Laptop"]
+transform = Transform3D(1, -1.49012e-07, -5.06639e-07, 8.9407e-08, 1, -3.72529e-08, 0, 2.23517e-08, 1, 0.204622, 0.317102, -0.0121613)
+light_color = Color(0.0899999, 0, 0.9, 1)
+light_energy = 4.93
+light_size = 0.082
+light_specular = 3.0
+shadow_enabled = true
+omni_range = 10.22
