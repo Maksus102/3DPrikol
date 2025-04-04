@@ -8,7 +8,7 @@ func _ready():
 	pass
 	
 func add_item(item: Object):
-	#print(item)
+	print(item)
 	items.append(item.id)
 
 

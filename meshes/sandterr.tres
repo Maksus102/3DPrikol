@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://yi0pjlp62gm3" path="res://textures/Assfalt/Asphalt020S_1K-JPG_NormalDX.jpg" id="2_43qf8"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_payxc")
 normal_enabled = true
 normal_scale = 1.32

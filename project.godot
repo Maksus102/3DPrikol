@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3DFolio"
-run/main_scene="res://city_test.tscn"
+run/main_scene="uid://2hqv8n3usyqu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

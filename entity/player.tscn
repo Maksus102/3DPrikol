@@ -49,12 +49,13 @@ input_crouch_action_name = "move_crouch"
 input_fly_mode_action_name = "move_fly_mode"
 Hit_Sprite = "res://textures/CUM.png"
 underwater_env = ExtResource("3_dxksd")
-step_bob_enabled = false
-rotation_to_move = false
-speed = 4
-sprint_speed_multiplier = 2.0
+jump_bob_enabled = false
+speed_rotation = 2.0
+angle_limit_for_rotation = 0.08
+speed = 8
+air_control = 2.0
+sprint_speed_multiplier = 6.0
 step_interval = 3.0
-jump_height = 8
 
 [node name="Collision" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.108129, 0)

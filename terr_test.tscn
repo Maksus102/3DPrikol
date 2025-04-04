@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://2hqv8n3usyqu"]
+[gd_scene load_steps=16 format=4 uid="uid://2hqv8n3usyqu"]
 
 [ext_resource type="PackedScene" uid="uid://2oxdgu03lnbk" path="res://entity/player.tscn" id="2_fiktm"]
 [ext_resource type="PackedScene" uid="uid://cjubbce6djcad" path="res://meshes/giantsand.glb" id="3_fiktm"]
@@ -6,6 +6,9 @@
 [ext_resource type="Material" uid="uid://cx4d486bdwbpn" path="res://textures/Metal2/Metal2.tres" id="5_86hg1"]
 [ext_resource type="VoxelGIData" uid="uid://ce0eh7lfgregm" path="res://meshes/terr_test.VoxelGI_data.res" id="6_86hg1"]
 [ext_resource type="Material" uid="uid://brofi1d8imwwn" path="res://textures/Tiles1/Tiles1.tres" id="6_ewaa7"]
+[ext_resource type="PackedScene" uid="uid://dogaefxl7oosb" path="res://meshes/valley.glb" id="7_ewaa7"]
+[ext_resource type="VoxelGIData" uid="uid://dbjlam5s7bxbl" path="res://meshes/terr_test.valley.VoxelGI_data.res" id="8_hpmj5"]
+[ext_resource type="PackedScene" uid="uid://c8wkwmsxib5ya" path="res://props/Furniture/Chair.tscn" id="9_yt74i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1x716"]
 sky_top_color = Color(0.286, 0.396, 0.55, 1)
@@ -30,7 +33,6 @@ glow_enabled = true
 glow_strength = 0.86
 glow_bloom = 0.18
 glow_blend_mode = 1
-fog_enabled = true
 fog_light_color = Color(0.73, 0.538375, 0.2701, 1)
 fog_sun_scatter = 0.25
 fog_density = 0.0035
@@ -40,6 +42,7 @@ volumetric_fog_density = 0.021
 volumetric_fog_albedo = Color(0.88, 0.653987, 0.2904, 1)
 volumetric_fog_emission = Color(0.73, 0.600547, 0.3212, 1)
 adjustment_enabled = true
+adjustment_brightness = 0.9
 adjustment_contrast = 1.26
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbn42"]
@@ -97,27 +100,24 @@ size = Vector3(0.5, 0.05, 0.7)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hf3sg")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.482963, -0.466507, 0.741025, -0.0991445, 0.811691, 0.575611, -0.87001, -0.351468, 0.345765, 0, 33, 0)
-light_color = Color(1, 0.9065, 0.49, 1)
-light_energy = 0.856
-shadow_enabled = true
-shadow_bias = 0.01
-shadow_transmittance_bias = 3.988
-directional_shadow_max_distance = 261.8
-directional_shadow_pancake_size = 72.0
-
 [node name="Player" parent="." instance=ExtResource("2_fiktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 8.59731, -70.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 918.5, -238.642, 144.5)
 
 [node name="giantsand" parent="." instance=ExtResource("3_fiktm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 4.5, 77.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 4.5, 77.5)
+visible = false
+
+[node name="VoxelGI" type="VoxelGI" parent="giantsand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.75, 17.5, 34.5)
+visible = false
+size = Vector3(1084.5, 219, 1054)
+data = ExtResource("6_86hg1")
 
 [node name="EtajkaMain" parent="." instance=ExtResource("4_hf3sg")]
-transform = Transform3D(-4.2222e-08, 0.258819, -0.965926, 1.13133e-08, 0.965926, 0.258819, 1, 0, -4.37114e-08, -36.5, -15, 49.5)
+transform = Transform3D(-0.642788, -6.84897e-08, -0.766044, -4.97683e-14, 1, -8.9407e-08, 0.766044, -5.74697e-08, -0.642788, 1071.54, -230.35, 61.0556)
 
 [node name="Laptop" type="StaticBody3D" parent="."]
-transform = Transform3D(0.258819, -5.0965e-09, -0.965926, 0.330366, 0.939693, 0.0885214, 0.907674, -0.34202, 0.243211, -57.5, -10.25, 37.5)
+transform = Transform3D(0.660299, -0.0274095, 0.750503, 0.349087, 0.896013, -0.274406, -0.664939, 0.443181, 0.601204, 1115.56, -229.7, 112.444)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Laptop"]
 mesh = SubResource("ArrayMesh_jdpln")
@@ -135,7 +135,28 @@ light_specular = 3.0
 shadow_enabled = true
 omni_range = 10.22
 
+[node name="valley" parent="." instance=ExtResource("7_ewaa7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1978.5, -363, 585)
+
 [node name="VoxelGI" type="VoxelGI" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.25, 22, 112)
-size = Vector3(1084.5, 219, 1054)
-data = ExtResource("6_86hg1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1956.5, -29, 627.8)
+size = Vector3(3178, 702, 3211)
+data = ExtResource("8_hpmj5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.20065, -0.3233, 0.924779, -0.220766, 0.904774, 0.364206, -0.954464, -0.277238, 0.11017, 0, 1216.5, 0)
+light_color = Color(1, 0.9065, 0.49, 1)
+light_energy = 0.856
+light_indirect_energy = 1.4
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_transmittance_bias = 3.988
+directional_shadow_split_1 = 0.023
+directional_shadow_split_2 = 0.075
+directional_shadow_split_3 = 0.19
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 1715.1
+directional_shadow_pancake_size = 72.0
+
+[node name="Chair" parent="." instance=ExtResource("9_yt74i")]
+transform = Transform3D(-0.859789, 0.0669873, 0.506236, 0.183013, 0.965926, 0.183013, -0.476727, 0.25, -0.842752, 1115.71, -230.28, 113.159)
